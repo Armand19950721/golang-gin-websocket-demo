@@ -1,0 +1,20 @@
+# 使用 Go 官方鏡像作為基礎
+FROM golang:1.19 AS builder
+
+# 設定工作目錄
+WORKDIR /app
+
+# 複製源代碼到容器中
+COPY . .
+
+# 構建可執行文件
+RUN go build main.go
+
+# 使用 scratch 鏡像創建一個最小的最終鏡像
+FROM scratch
+
+# 從構建階段複製可執行文件
+COPY --from=builder /app/main /main
+
+# 設定啟動命令
+CMD ["/myapp"]

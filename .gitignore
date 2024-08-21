@@ -1,0 +1,4 @@
+volumes/
+service/go.sum
+service/.env
+service/main

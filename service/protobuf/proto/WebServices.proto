@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package WebServices;
+option go_package = "service/protos/WebServices";
+
+import "Echo.proto";
+
+service EchoServices {
+    rpc Echo (Echo.EchoRequest) returns (Echo.EchoReply);
+}

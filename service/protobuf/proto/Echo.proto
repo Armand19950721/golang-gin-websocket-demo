@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package Echo;
+option go_package = "service/protos/Echo";
+
+message EchoRequest {
+    string msg = 1;
+}
+
+message EchoReply {
+    bool result = 1;
+    string msg = 2;
+}

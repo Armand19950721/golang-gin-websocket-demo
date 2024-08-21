@@ -1,0 +1,65 @@
+syntax="proto3";
+
+package Common;
+option go_package = "service/protos/Common";
+
+message CommonRequest {
+}
+
+message CommonReply {
+}
+
+message PageInfoRequest {
+  int32 page_item_count = 1;
+  int32 current_page_num = 2;
+}
+
+message PageInfoReply {
+  int64 total_count = 1;
+}
+
+message ErrorReply {
+  ErrorCodes code = 1;
+  string message = 2;
+}
+
+message ErrorReplyGin {
+  ErrorCodes code = 1;
+  string message = 2;
+  string file_name = 3;
+  string file_path = 4;
+}
+
+enum ErrorCodes {
+  ErrorCodes_NONE = 0;
+  
+  // 權限
+  SUCCESS = 10000;
+  INVAILD_TOKEN = 10001;
+  ACCOUNT_DELETED = 10002;
+  LOGIN_INVALID = 10003;
+  PERMISSION_REJECT = 10004;
+      
+  // API
+  INVAILD_PARAM = 20001; 
+  REPEATED_ERROR = 20003;
+  DATA_NOT_FOUND = 20004;
+  INTERNAL_ERROR = 20005;
+  DB_ERROR = 20006;
+
+  // Third Party Errors
+  TOKEN_RUNOUT = 30001; 
+  
+  // File
+  UPLOAD_FILE_SIZE_INVALID = 40001;
+  UPLOAD_FILE_TYPE_NOT_SUPPORT = 40002;
+
+  // Email
+  EMAIL_LIMIT_REACH = 50001;
+  EMAIL_TEST = 50002;  
+
+  // WebSocket
+  SEND_COMMAND_TIMEOUT = 60001;
+  RECEIVER_NOT_EXIST_IN_CONNECTION_POOL = 60002;
+
+}

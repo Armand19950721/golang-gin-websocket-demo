@@ -1,0 +1,11 @@
+FROM golang:1.19
+
+# 创建工作目录
+RUN mkdir -p /app
+WORKDIR /app
+
+# 复制代码和环境文件
+COPY ./main ./main
+
+RUN chmod 777 main
+COPY ./.env ./.env

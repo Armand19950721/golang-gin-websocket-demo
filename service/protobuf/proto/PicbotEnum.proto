@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+package PicbotEnum;
+option go_package = "service/protos/PicbotEnum";
+
+enum PicbotProductType {
+    PicbotProductType_NONE = 0;
+    PHOTO = 1;
+    VIDEO = 2;
+    AI_IMAGE_TO_IMAGE = 3;
+}
+
+enum PicbotCommandType {
+    PicbotCommandType_NONE = 0;
+
+    // send to backend
+    REPLY_FROM_PICBOT = 101;
+    PICBOT_STATE = 102;
+    ADD_ORDER = 103;
+    GET_THEME_GROUP_INFO = 104;
+
+    // send to picbot
+    RESTART = 201;
+    CONTROL_VIDEO = 202;
+    RECEIVE_CONFIRM = 203;
+    REPLY_FROM_BACKEND = 204;
+    IMAGE_TO_IMAGE_RESULT = 205;
+}
+
+enum PicbotProductPageErrorState {
+    PicbotProductPageErrorState_NONE = 0;
+    PENDING = 1;
+    SOLVED = 2;
+    UNSOLVED = 3;
+}
+
+enum PicbotPaymentType {
+    PicbotPaymentType_NONE = 0;
+    QR_CODE = 1;
+    EZ_CARD = 2;
+    LINE_PAY = 3;
+    WE_CHAT = 4;
+    PI = 5;
+    JKO = 6;
+    ALI = 7;
+    FREE = 100;
+}
+
+enum PicbotOrderState {
+    PicbotOrderState_NONE = 0;
+    SUCCESS = 1;
+    FAIL = 2;
+}
+
+enum PicbotOrderInvoiceState {
+    PicbotOrderInvoiceState_NONE = 0;
+    INVOICE_PEDDING = 1;
+    INVOICE_SUCCESS = 2;
+    INVOICE_FAIL = 3;
+}
+
+enum PicbotResourceType {
+    PicbotResource_NONE = 0;
+    FILTER_FRAME = 1;
+    VISUAL_VIDEO = 2;
+}
+
+enum AiState {
+    AiState_NONE = 0;
+    AI_STATE_PEDDING = 1;
+    AI_STATE_SUCCESS = 2;
+    AI_STATE_FAIL = 3;
+}
+
+enum ImageToImageStyle {
+    ImageToImageStyle_NONE = 0;
+    STUDIO_GHIBLI = 1;
+    FUTURISTIC_RETRO_CYBERPUNK = 2;
+    PIXAR_ANIMATION = 3;
+}
